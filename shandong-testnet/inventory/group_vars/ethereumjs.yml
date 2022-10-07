@@ -1,0 +1,32 @@
+el_client_name: ethereumjs
+el_image_name: g11tech/ethereumjs:shandong
+execution_endpoint: http://127.0.0.1:{{el_engine_snoop_port}}
+snoop_command: "./json_rpc_snoop -p {{el_engine_snoop_port}} http://127.0.0.1:{{el_engine_port}}"
+
+home_dir: "/home/{{ansible_user}}"
+
+el_github_external_user_pubkeys:
+  - g11tech
+  - acolytec3
+  - holgerd77
+  - jochem-brouwer 
+
+el_volumes:
+  - "{{el_node_dir}}:/eldata"
+  - "{{testnet_dir}}:/networkdata"
+  - "{{home_dir}}/jwtsecret:/jwtsecret"
+
+el_start_args: >
+  --datadir=/eldata
+  --gethGenesis=/networkdata/genesis.json
+  --rpc --rpcport={{el_rpc_port}} --rpcaddr=0.0.0.0 --rpcCors="*"
+  --ws --wsPort={{el_ws_rpc_port}} --wsAddr=0.0.0.0
+  --rpcEngine --rpcEnginePort={{el_engine_port}} --rpcEngineAddr=0.0.0.0
+  --jwt-secret=/jwtsecret
+  --extIP={{ansible_host}}
+  --maxPeers=75
+  {% if (el_bootnode_enode is defined) and el_bootnode_enode %}
+  --bootnodes="{{ el_bootnode_enode | join(',') }}"
+  {% endif %}
+
+el_user_id: "1000:1000"

@@ -11,7 +11,6 @@ github_user_pubkeys:
   - jochem-brouwer
   - alcuadrado
 
-
 ansible_python_interpreter: /usr/bin/python3
 oh_my_zsh_config:
   PROMPT: "%{$fg[yellow]%}%n%{$fg[white]%}@%{$fg[red]%}%m%{$reset_color%} ${PROMPT}"
