@@ -3,8 +3,8 @@
 ##############################################
 cl_client_name: lighthouse
 
-beacon_image_name: sigp/lighthouse:v3.1.0
-validator_image_name: sigp/lighthouse:v3.1.0
+beacon_image_name: sigp/lighthouse:v3.1.2
+validator_image_name: sigp/lighthouse:v3.1.2
 beacon_endpoint: "http://127.0.0.1:{{beacon_api_port}}"
 
 cl_github_external_user_pubkeys:
@@ -38,7 +38,6 @@ beacon_start_args: >
   --enr-address={{ansible_host}}
   --enr-tcp-port={{beacon_p2p_port}} --enr-udp-port={{beacon_p2p_port}}
   --port={{beacon_p2p_port}} --discovery-port={{beacon_p2p_port}}
-  --el
   {% if (bootnode_enrs is defined) and bootnode_enrs %}
   --boot-nodes="{{ bootnode_enrs | join(',') }}"
   {% endif %}  --http
@@ -56,9 +55,7 @@ beacon_start_args: >
   --suggested-fee-recipient={{fee_recipient}}
   --jwt-secrets="/jwtsecret"
   --count-unrealized
-  {% if mev_boost == 'true' %}
-  --builder="http://127.0.0.1:{{mev_boost_port}}"
-  {% endif %}
+
 # in case of el deposit endpoint problems: --dummy-el
 
 validator_start_args: >
@@ -73,9 +70,7 @@ validator_start_args: >
   --http --http-port={{validator_rpc_port}}
   --metrics --metrics-address 0.0.0.0 --metrics-port "{{validator_metrics_port}}"
   --suggested-fee-recipient={{fee_recipient}}
-  {% if mev_boost == 'true' %}
-  --builder-proposals
-  {% endif %}
+
 
 ##############################################
 # file permissions and user ids
@@ -84,5 +79,5 @@ keystores_file_mode: "0700"
 beacon_user_id: "1000:1000"
 validator_user_id: "0:0"
 
-beacon_log_level: debug
+beacon_log_level: info
 separate_validator_process_enabled: true

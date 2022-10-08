@@ -20,7 +20,6 @@ el_start_args: >
   --datadir=/eldata
   --gethGenesis=/networkdata/genesis.json
   --rpc --rpcport={{el_rpc_port}} --rpcaddr=0.0.0.0 --rpcCors="*"
-  --ws --wsPort={{el_ws_rpc_port}} --wsAddr=0.0.0.0
   --rpcEngine --rpcEnginePort={{el_engine_port}} --rpcEngineAddr=0.0.0.0
   --jwt-secret=/jwtsecret
   --extIP={{ansible_host}}

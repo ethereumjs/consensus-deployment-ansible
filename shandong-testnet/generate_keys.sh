@@ -32,7 +32,7 @@ function prep_group {
 }
 
 echo "teku keys"
-prep_group 1 "$VALIDATORS_MNEMONIC_0" 0 1 "shandong-bootnode" 1000
+prep_group 1 "$VALIDATORS_MNEMONIC_0" 0 1 "shandong-bootnode" 64
 
 echo "lighthouse keys"
-prep_group 1 "$VALIDATORS_MNEMONIC_0" 1 2 "shandong-ethereumjs-lodestar" 1000
+prep_group 1 "$VALIDATORS_MNEMONIC_0" 1 2 "shandong-ethereumjs-lodestar" 64

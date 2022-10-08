@@ -1,5 +1,5 @@
 el_client_name: geth
-el_image_name: ethereum/client-go:v1.10.23
+el_image_name: parithoshj/geth:shangdong-43b2a59
 execution_endpoint: http://127.0.0.1:{{el_engine_snoop_port}}
 snoop_command: "./json_rpc_snoop -p {{el_engine_snoop_port}} http://127.0.0.1:{{el_engine_port}}"
 

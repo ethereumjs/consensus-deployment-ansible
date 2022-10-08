@@ -3,8 +3,8 @@
 ##############################################
 cl_client_name: lodestar
 
-beacon_image_name: chainsafe/lodestar:v1.0.0
-validator_image_name: chainsafe/lodestar:v1.0.0
+beacon_image_name: chainsafe/lodestar:v1.1.0
+validator_image_name: chainsafe/lodestar:v1.1.0
 beacon_endpoint: "http://127.0.0.1:{{beacon_api_port}}"
 
 cl_github_external_user_pubkeys:
@@ -40,7 +40,9 @@ beacon_start_args: >
         --dataDir=/beacondata
         --paramsFile=/custom_config_data/config.yaml
         --genesisStateFile=/custom_config_data/genesis.ssz
-        --bootnodes="enr:-Iq4QMCTfIMXnow27baRUb35Q8iiFHSIDBJh6hQM5Axohhf4b6Kr_cOCu0htQ5WvVqKvFgY28893DHAg8gnBAXsAVqmGAX53x8JggmlkgnY0gmlwhLKAlv6Jc2VjcDI1NmsxoQK6S-Cii_KmfFdUJL2TANL3ksaKUnNXvTCv1tLwXs0QgIN1ZHCCIyk"
+          {% if (bootnode_enrs is defined) and bootnode_enrs %}
+          --bootnodes="{{ bootnode_enrs | join(',') }}"
+          {% endif %}
         --network.connectToDiscv5Bootnodes
         --rest.port={{beacon_api_port}}
         --execution.urls={{execution_endpoint}}
@@ -51,12 +53,9 @@ beacon_start_args: >
         --enr.ip={{ansible_host}}
         --metrics
         --metrics.port={{ beacon_metrics_port }}
-        --eth1.depositContractDeployBlock=14675001
+        --eth1.depositContractDeployBlock=0
         --jwt-secret="/jwtsecret"
         --suggestedFeeRecipient={{fee_recipient}}
-        {% if mev_boost == 'true' %}
-        --builder --builder.urls="http://127.0.0.1:{{mev_boost_port}}"
-        {% endif %}
 
 validator_start_args: >
   validator

@@ -32,16 +32,15 @@ elendpoint: http://127.0.0.1:8545
 # testnet specific information
 ##############################################
 testnet_type: custom
-cl_network_name: example-testnet
-chainID: 1
+cl_network_name: shandong-testnet
+chainID: 1337902
 terminal_total_difficulty: "0"
 fee_recipient: "0xf97e180c050e5Ab072211Ad2C213Eb5AEE4DF134"
 # enter bootnodes here if needed
 bootnode_enrs:
-  - []
-
+  - "enr:-Ly4QH22O_B9sL1VeiDCyjy48KttNuIrx1Oy1RwfOA3O4XmCAl6_sDh85JWHaaPNxcwKAux3wkWcA0Exoi-Jh4r5ltcBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD992pNITN5Av__________gmlkgnY0gmlwhC5lfi2Jc2VjcDI1NmsxoQPCPpKv8dn7Qqc0-3I3atsl0sC-5LLmfrcY0Nci7jqrKIhzeW5jbmV0cwCDdGNwgiMog3VkcIIjKA"
 el_bootnode_enode:
-  - []
+  - "enode://476b1b3af80ff9d2022251efa1695410b285d855dad1f561686c42ff3ab1a63d5472cff7556faf59cbce0d4f6ed5a73fecaf04edadfac96887959602012f2442@46.101.126.45:30303"
 
 ##############################################
 # metric information
@@ -143,7 +142,7 @@ common_log_driver: json-file
 beacon_container_name: beacon
 validator_container_name: validator
 execution_container_name: execution
-hi_peer_count: 100
+hi_peer_count: 25
 separate_validator_process_enabled: true
 
 firewall_allowed_tcp_ports:
