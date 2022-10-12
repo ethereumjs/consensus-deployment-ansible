@@ -3,8 +3,8 @@
 ##############################################
 cl_client_name: lodestar
 
-beacon_image_name: chainsafe/lodestar:v1.1.0
-validator_image_name: chainsafe/lodestar:v1.1.0
+beacon_image_name: chainsafe/lodestar:v1.0.0
+validator_image_name: chainsafe/lodestar:v1.0.0
 beacon_endpoint: "http://127.0.0.1:{{beacon_api_port}}"
 
 cl_github_external_user_pubkeys:
@@ -41,7 +41,9 @@ beacon_start_args: >
         --paramsFile=/custom_config_data/config.yaml
         --genesisStateFile=/custom_config_data/genesis.ssz
           {% if (bootnode_enrs is defined) and bootnode_enrs %}
-          --bootnodes="{{ bootnode_enrs | join(',') }}"
+          {% for bootnode_enr in bootnode_enrs %}
+          --bootnodes="{{ bootnode_enr }}"
+          {% endfor %}
           {% endif %}
         --network.connectToDiscv5Bootnodes
         --rest.port={{beacon_api_port}}
@@ -57,11 +59,12 @@ beacon_start_args: >
         --jwt-secret="/jwtsecret"
         --suggestedFeeRecipient={{fee_recipient}}
 
+
 validator_start_args: >
   validator
    --dataDir=/validatordata
    --paramsFile=/custom_config_data/config.yaml
-   --keystoresDir=/validatordata/keystores
+   --keystoresDir=/validatordata/validators
    --secretsDir=/validatordata/secrets/
    --server={{beacon_endpoint}}
    --graffiti={{graffiti}}
