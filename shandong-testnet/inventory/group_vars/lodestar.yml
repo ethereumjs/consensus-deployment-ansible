@@ -58,7 +58,6 @@ beacon_start_args: >
         --eth1.depositContractDeployBlock=0
         --jwt-secret="/jwtsecret"
         --suggestedFeeRecipient={{fee_recipient}}
-        --eth1 false
 
 
 validator_start_args: >
