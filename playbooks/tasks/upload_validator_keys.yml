@@ -50,7 +50,7 @@
       when: not does_key_tar_exist.stat.exists and cl_client_name == 'lodestar'
       delegate_to: localhost
       shell: |
-        cp -r "{{local_validator_host_dir}}/keys" "{{local_validator_host_dir}}/selected_keys/keystores"
+        cp -r "{{local_validator_host_dir}}/keys" "{{local_validator_host_dir}}/selected_keys/validators"
         cp -r "{{local_validator_host_dir}}/secrets" "{{local_validator_host_dir}}/selected_keys/secrets"
     - name: Archive validator dir to prepare for upload
       when: not does_key_tar_exist.stat.exists

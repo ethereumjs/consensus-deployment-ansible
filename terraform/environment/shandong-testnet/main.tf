@@ -59,9 +59,9 @@ module "shandong_bootnode" {
 }
 
 module "shandong_ethereumjs" {
-  droplet_count = 2
+  droplet_count = 8
 
-  size =  "s-8vcpu-16gb-amd"
+  size =  "s-4vcpu-8gb-amd"
   region = local.region
   image = local.image
   name = "shandong-ethereumjs-lodestar"

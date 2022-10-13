@@ -35,4 +35,4 @@ echo "teku keys"
 prep_group 1 "$VALIDATORS_MNEMONIC_0" 0 1 "shandong-bootnode" 64
 
 echo "lighthouse keys"
-prep_group 1 "$VALIDATORS_MNEMONIC_0" 1 2 "shandong-ethereumjs-lodestar" 64
+prep_group 1 "$VALIDATORS_MNEMONIC_0" 1 8 "shandong-ethereumjs-lodestar" 64
