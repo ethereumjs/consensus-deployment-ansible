@@ -1,0 +1,57 @@
+certificates:
+  rpc.shandong.ethdevops.io:
+    mode: http
+  shandong.ethdevops.io:
+    mode: http
+  faucet.shandong.ethdevops.io:
+    mode: http
+  explorer.shandong.ethdevops.io:
+    mode: http
+  beaconchain.shandong.ethdevops.io:
+    mode: http
+
+haproxy_frontends:
+  - name: host_shandong_rpc
+    address: rpc.shandong.ethdevops.io
+    backend: host_shandong_rpc
+  - name: host_shandong
+    address: shandong.ethdevops.io
+    backend: host_shandong
+  - name: host_shandong_faucet
+    address: faucet.shandong.ethdevops.io
+    backend: host_shandong_faucet
+  - name: host_shandong_explorer
+    address: explorer.shandong.ethdevops.io
+    backend: host_shandong_explorer
+  - name: host_shandong_beaconchain
+    address: beaconchain.shandong.ethdevops.io
+    backend: host_shandong_beaconchain
+
+haproxy_backend_servers:
+  - name: host_shandong_rpc
+    address: localhost:8545
+    options: 'check fall 3 rise 2'
+  - name: host_shandong
+    address: 127.0.0.1:1313
+    options: 'check fall 3 rise 2'
+  - name: host_shandong_faucet
+    address: 127.0.0.1:8001
+    options: 'check fall 3 rise 2'
+  - name: host_shandong_explorer
+    address: 127.0.0.1:3334
+    options: 'check fall 3 rise 2'
+  - name: host_shandong_beaconchain
+    address: 127.0.0.1:3333
+    options: 'check fall 3 rise 2'
+
+haproxy_stats_port: 8404
+haproxy_user: devops
+haproxy_group: devops
+haproxy_stats_user: devops
+haproxy_stats_password: "{{ lookup('pipe', 'keybase fs read /keybase/team/ethereum.devops/verkle/verkle-haproxy-key') }}"
+
+haproxy_default_backend_name: host_shandong
+grafana_prometheus_network_name: explorernet
+
+le_email: parithosh@ethereum.org
+debian_certbot: false
