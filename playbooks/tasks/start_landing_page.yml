@@ -10,9 +10,6 @@
         pull: true
         restart_policy: unless-stopped
         network_mode: bridge
-        networks:
-          - name: "{{explorer_docker_network_name}}"
-            ipv4_address: "{{landing_page_ip}}"
         ports:
           - "{{landing_page_port}}:1313"
         restart: "{{ landing_page_require_restart | default(false) }}"
