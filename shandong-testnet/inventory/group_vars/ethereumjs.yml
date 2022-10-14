@@ -27,5 +27,7 @@ el_start_args: >
   {% if (el_bootnode_enode is defined) and el_bootnode_enode %}
   --bootnodes="{{ el_bootnode_enode | join(',') }}"
   {% endif %}
+  --ws --wsPort={{el_ws_rpc_port}} --wsAddr=0.0.0.0 --wsEnginePort=8552
+  --loglevel=debug
 
 el_user_id: "1000:1000"
