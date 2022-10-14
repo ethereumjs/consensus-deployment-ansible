@@ -16,7 +16,6 @@ params:
   disableThemeToggle: true
   defaultTheme: dark
   ethereum:
-    beaconexplorerUrl: https://beaconchain.shandong.ethdevops.io
     faucetUrl: https://faucet.shandong.ethdevops.io
     rpcUrl: https://rpc.shandong.ethdevops.io
     explorerUrl: https://explorer.shandong.ethdevops.io
@@ -24,12 +23,8 @@ params:
     chainId: "{{chainID}}"
 
   links:
-  - name: "Beaconchain explorer"
-    dataLookup: beaconexplorerUrl
   - name: "Transaction explorer"
     dataLookup: explorerUrl
-  - name: "Consensus monitor"
-    dataLookup: consensusmonitorUrl
   - name: "Faucet"
     dataLookup: faucetUrl
   - name: "JSON RPC"
