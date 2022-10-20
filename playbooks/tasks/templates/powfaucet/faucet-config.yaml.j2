@@ -3,13 +3,13 @@
 ### General Settings
 
 # Path to faucet db file (defaults to faucet-store.json)
-faucetStore: "faucet-store.json"
+faucetStore: "/config/faucet-store.json"
 
 # logfile for faucet events (comment out for no logging)
-faucetLogFile: "faucet-events.log"
+faucetLogFile: "/config/faucet-events.log"
 
 # path to file to write the process pid to (comment out to disable)
-#faucetPidFile: "faucet-pid.txt"
+#faucetPidFile: "/config/faucet-pid.txt"
 
 # faucet http/ws server port
 serverPort: 8080
@@ -288,7 +288,7 @@ ensResolver:
 # faucet stats config (comment out to disable stats)
 faucetStats:
   # faucet stats file
-  #logfile: "faucet-stats.log"
+  #logfile: "/config/faucet-stats.log"
 
 # build SEO optimized index.seo.html and deliver as index page
 # the blank loader page just looks bad when parsed by search engines
