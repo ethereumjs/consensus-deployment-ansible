@@ -15,3 +15,4 @@
           - "8002:8080"
         restart: "{{ explorer_require_restart | default(false) }}"
         volumes: "{{ powfaucet_volumes }}"
+        entrypoint: ["node", "dist/app.js", "--config=/config/faucet-config.yaml"]
