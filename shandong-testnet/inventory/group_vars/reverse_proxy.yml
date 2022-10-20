@@ -20,6 +20,9 @@ haproxy_frontends:
   - name: host_shandong_faucet
     address: faucet.shandong.ethdevops.io
     backend: host_shandong_faucet
+  - name: host_shandong_powfaucet
+    address: powfaucet.shandong.ethdevops.io
+    backend: host_shandong_powfaucet
   - name: host_shandong_explorer
     address: explorer.shandong.ethdevops.io
     backend: host_shandong_explorer
@@ -36,6 +39,9 @@ haproxy_backend_servers:
     options: 'check fall 3 rise 2'
   - name: host_shandong_faucet
     address: 127.0.0.1:8001
+    options: 'check fall 3 rise 2'
+  - name: host_shandong_powfaucet
+    address: 127.0.0.1:8002
     options: 'check fall 3 rise 2'
   - name: host_shandong_explorer
     address: 127.0.0.1:3334

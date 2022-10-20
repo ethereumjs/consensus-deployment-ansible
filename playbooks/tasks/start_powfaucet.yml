@@ -1,0 +1,17 @@
+- name: Start pow-faucet
+  hosts: powfaucet
+  gather_facts: true
+  serial: 20
+  tasks:
+    - name: Start pow-faucet
+      docker_container:
+        name: "{{ powfaucet_container_name }}"
+        state: started
+        image: "{{ powfaucet_image_name }}"
+        pull: true
+        restart_policy: unless-stopped
+        network_mode: bridge
+        ports:
+          - "8002:8080"
+        restart: "{{ explorer_require_restart | default(false) }}"
+        volumes: "{{ powfaucet_volumes }}"

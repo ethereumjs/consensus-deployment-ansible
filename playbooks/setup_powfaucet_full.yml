@@ -1,0 +1,3 @@
+---
+- import_playbook: tasks/upload_powfaucet_data.yml
+- import_playbook: tasks/start_powfaucet.yml
