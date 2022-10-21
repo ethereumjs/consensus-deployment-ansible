@@ -15,8 +15,8 @@ powfaucet_hcaptcha_secret: "{{ lookup('pipe', 'keybase fs read /keybase/team/eth
 ##############################################
 powfaucet_network_name: "Shandong"
 unit_name: "shanETH"
-powfaucet_share_reward: 250000000000000000
-powfaucet_min_reward:   500000000000000000
+powfaucet_share_reward:  50000000000000000
+powfaucet_min_reward:   100000000000000000
 powfaucet_max_reward: 20000000000000000000
 powfaucet_rpc_url: https://rpc.shandong.ethdevops.io
 powfaucet_tx_link: https://explorer.shandong.ethdevops.io/tx/{txid}
