@@ -1,5 +1,8 @@
 ## General information
 
+Network has been **rebooted** at `2022-11-05T10:54:46Z`.
+Please note the the `chainId` has also changed this time around along with the bootnodes. 
+
 enode for execution clients:
 ```sh
   - "enode://15c459fb9cd636f9f7640dfc0f4a6445467205fc6731063acdee9befa2ab35ad690a7240fdddef5da9d088c29a52029ceaf9ef1aea889927ced972d4b19b8edc@46.101.126.45:30303"
