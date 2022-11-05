@@ -1,5 +1,4 @@
 ## General information
-ChainId: `1337903`
 
 enode for execution clients:
 ```sh
