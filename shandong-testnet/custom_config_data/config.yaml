@@ -7,7 +7,7 @@ CONFIG_NAME: testnet # needs to exist because of Prysm. Otherwise it conflicts w
 # ---------------------------------------------------------------
 # `2**14` (= 16,384)
 MIN_GENESIS_ACTIVE_VALIDATOR_COUNT: 500
-MIN_GENESIS_TIME: 1666736008
+MIN_GENESIS_TIME: 1667641735
 GENESIS_FORK_VERSION: 0x01337902
 GENESIS_DELAY: 300
 
@@ -63,6 +63,6 @@ CHURN_LIMIT_QUOTIENT: 65536
 
 # Deposit contract
 # ---------------------------------------------------------------
-DEPOSIT_CHAIN_ID: 1337902
-DEPOSIT_NETWORK_ID: 1337902
+DEPOSIT_CHAIN_ID: 1337903
+DEPOSIT_NETWORK_ID: 1337903
 DEPOSIT_CONTRACT_ADDRESS: 0x4242424242424242424242424242424242424242
