@@ -1,0 +1,32 @@
+##############################################
+# generic pow-faucet info
+##############################################
+powfaucet_node_dir: "{{home_dir}}/powfaucet_data"
+debug: false
+
+##############################################
+# captcha info
+##############################################
+powfaucet_hcaptcha_site_key: "{{ lookup('pipe', 'keybase fs read /keybase/team/ethereum.devops/verkle/verkle-hcaptcha-site-key') }}"
+powfaucet_hcaptcha_secret: "{{ lookup('pipe', 'keybase fs read /keybase/team/ethereum.devops/verkle/verkle-hcaptcha-secret') }}"
+
+##############################################
+# pow-faucet config
+##############################################
+powfaucet_network_name: "Shandong"
+unit_name: "shanETH"
+powfaucet_share_reward:  50000000000000000
+powfaucet_min_reward:   100000000000000000
+powfaucet_max_reward: 20000000000000000000
+powfaucet_rpc_url: https://rpc.shandong.ethdevops.io
+powfaucet_tx_link: https://explorer.shandong.ethdevops.io/tx/{txid}
+powfaucet_secret: "{{ chainID }}-{{ lookup('pipe', 'keybase fs read /keybase/team/ethereum.devops/verkle/verkle-powfaucet-key') }}"
+powfaucet_private_key: "{{ lookup('pipe', 'keybase fs read /keybase/team/ethereum.devops/verkle/verkle-powfaucet-key') }}"
+
+##############################################
+# faucet container info
+##############################################
+powfaucet_container_name: powfaucet
+powfaucet_image_name: pk910/powfaucet:latest
+powfaucet_volumes:
+  - "{{powfaucet_node_dir}}:/config"

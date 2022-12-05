@@ -1,0 +1,13 @@
+- name: Upload pow-faucet data
+  hosts: powfaucet
+  gather_facts: true
+  tasks:
+    - name: Creates pow-faucet dir
+      file:
+        path: "{{powfaucet_node_dir}}"
+        state: directory
+    - name: Move the faucet faucet-config.yaml j2 template to remote
+      template:
+        src: powfaucet/faucet-config.yaml.j2
+        dest: "{{powfaucet_node_dir}}/faucet-config.yaml"
+        mode: '755'
